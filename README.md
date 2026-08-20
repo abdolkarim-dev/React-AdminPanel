@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -73,3 +74,7 @@ export default defineConfig([
 ])
 
 ```
+=======
+# React-AdminPanel
+This is a react project for admin pane 
+>>>>>>> 991666c8a994bf3b2a2006b0267610e05f726415
