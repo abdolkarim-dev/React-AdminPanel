@@ -1,11 +1,14 @@
-import "./App.css";
 
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+Dashboard
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">React + Vite + Tailwind</h1>
-    </div>
+    <Routes>
+      <Route path="/*" element={<Dashboard />} />
+    </Routes>
   );
 }
 
 export default App;
+ 
