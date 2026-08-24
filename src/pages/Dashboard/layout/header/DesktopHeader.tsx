@@ -4,8 +4,8 @@ function DesktopHeader(): JSX.Element {
     return (
 
         <header className="sticky top-0 z-99999 text-c">
-            <div>
-                <div>
+            <div className="flex items-center gap-4">
+                <div className="flex">
                     <div>
                         icon
                     </div>
@@ -13,9 +13,9 @@ function DesktopHeader(): JSX.Element {
                         <input type="text" />
                     </div>
                 </div>
-                <div>
+                <div className="flex gap-3">
                     <div>
-                        darkmode
+                        dark mode
                     </div>
                     <div>
                         notifation
