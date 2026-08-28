@@ -1,81 +1,142 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import type { JSX } from "react/jsx-runtime";
 import MenuData, { type MenuItem } from "./components/MenuData";
 import { Link, useLocation, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-
+import {
+  BoxCubeIcon,
+  CalenderIcon,
+  ChevronDownIcon,
+  GridIcon,
+  HorizontaLDots,
+  ListIcon,
+  PageIcon,
+  PieChartIcon,
+  PlugInIcon,
+  TableIcon,
+  UserCircleIcon,
+} from "@/assets/icons";
 function DesktopMenu(): JSX.Element {
   const menuItems = MenuData();
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [expandedMenu, setExpandedMenu] = useState<Record<number, boolean>>({});
+  const location = useLocation();
+
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
+
+  const isItemActive = (item: MenuItem) => {
+    if (item.path && item.path === location.pathname) return true;
+    if (item.subItems) {
+      return item.subItems.some(
+        (sub: any) =>
+          sub.path === location.pathname ||
+          sub.subItems?.some((child: any) => child.path === location.pathname),
+      );
+    }
+    return false;
+  };
+
   useEffect(() => {
-    console.log(expandedMenu);
-  }, [expandedMenu]);
+    const newOpen: Record<string, boolean> = {};
+    menuItems.forEach((item) => {
+      if (isItemActive(item) && item.subItems) {
+        newOpen[item.name] = true;
+      }
+    });
+    setOpenMenus((prev) => ({ ...prev, ...newOpen }));
+  }, [location.pathname]);
+
+  const toggleMenu = (name: string) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
+
   return (
     <div>
+      <header></header>
       {menuItems.map((item, index) => {
-        const isOpen = openMenu === item.name;
-        let hasChildren = null;
-        if (item.subItems) {
-          hasChildren = item.subItems?.length > 0;
-        }
-
+        const isOpen = !!openMenus[item.name];
+        let hasChildren = !!item.subItems?.length;
+        const active = isItemActive(item);
         return (
           <div
             key={item.name}
-            className=" flex   justify-center gap-3 menu-item flex-col items-start"
+            className=" flex justify-center gap-3 menu-item flex-col items-start "
           >
+           
             {hasChildren ? (
-              <button
-                onClick={() => {
-                  setOpenMenu(isOpen ? null : item.name);
-                  setExpandedMenu(() => ({
-                    [index]: true,
-                  }));
-                }}
-                className={` flex gap-3 ${isOpen ? "menu-item-active " : "menu-item-inactive"}`}
+              // Item Sub Menu
+              <div
+                onClick={() => toggleMenu(item.name)}
+                className={`flex items-center w-full cursor-pointer gap-3 ${active || isOpen ? "menu-item-active " : "menu-item-inactive"} py-1   `}
               >
-                <span
-                  className={`menu-item-icon-size  ${
-                    isOpen ? "menu-item-icon-active" : "menu-item-icon-inactive"
-                  }`}
+                <button
+                  className={` flex gap-3 items-center ${active || isOpen ? "menu-item-active " : "menu-item-inactive"}`}
                 >
-                  {item.icon}
-                </span>
-                {item.name}
-              </button>
-            ) : (
-              <NavLink
-                onClick={() => {
-                  setOpenMenu(isOpen ? null : item.name);
-                  setExpandedMenu(() => ({}));
-                }}
-                className={` flex flex-col ${isOpen ? "menu-item-active" : "menu-item-inactive"}`}
-                to={item.path!}
-              >
-                <div className="flex  items-center justify-center gap-3">
                   <span
                     className={`menu-item-icon-size  ${
-                      isOpen
+                      active || isOpen
                         ? "menu-item-icon-active"
                         : "menu-item-icon-inactive"
                     }`}
                   >
                     {item.icon}
                   </span>
-                  {item.name}{" "}
+                  {item.name}
+                </button>
+
+                <span
+                  className={`ml-auto w-5 h-5 transition-transform duration-200 ${
+                    isOpen ? "rotate-180 text-brand-500" : "text-gray-400"
+                  }`}
+                >
+                  <ChevronDownIcon />
+                </span>
+              </div>
+            ) : (
+              // Item Menu
+              <NavLink
+                to={item.path!}
+                className={({ isActive }) =>
+                  `flex flex-col ${
+                    isActive ? "menu-item-active" : "menu-item-inactive"
+                  }`
+                }
+              >
+                <div className="flex  items-center justify-center gap-3">
+                  <span
+                    className={`menu-item-icon-size ${
+                      active
+                        ? "menu-item-icon-active"
+                        : "menu-item-icon-inactive"
+                    }`}
+                  >
+                    {item.icon}
+                  </span>
+                  {item.name}
                 </div>
               </NavLink>
             )}
-            {item.subItems && expandedMenu[index] && (
-              <motion.div>
+            {/* item subItem */}
+            {hasChildren && isOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="overflow-hidden w-full   "
+              >
                 {item.subItems?.map((sub) => {
                   return (
                     <div key={sub.name} className="flex flex-col">
                       <NavLink
                         to={sub.path!}
-                        onClick={() => setOpenMenu(isOpen ? null : sub.name)}
-                        className={`${isOpen ? "menu-dropdown-item-inactive" : "menu-dropdown-item-active"} cursor-pointer ml-9`}
+                        className={({ isActive }) =>
+                          `cursor-pointer ml-9 ${
+                            isActive
+                              ? "menu-dropdown-item-active"
+                              : "menu-dropdown-item-inactive"
+                          }`
+                        }
                       >
                         {sub.name}
                       </NavLink>
