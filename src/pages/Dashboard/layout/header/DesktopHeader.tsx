@@ -4,30 +4,29 @@ import { ThemeToggleButton } from "@/components/Header/ThemeToggleButton";
 import NotificationDropdown from "@/components/Header/NotificationDropdown";
 import UserDropdown from "@/components/Header/UserDropdown";
 
-
 function DesktopHeader(): JSX.Element {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999  lg:border-b ">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex  items-center justify-between">
+      <div className="flex items-center justify-between gap-4 w-full">
+        <div className="flex items-center justify-between ml-6 gap-4">
           <div>
             <button
-              className="items-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-99999 dark:border-gray-800 lg:flex dark:text-gray-400 lg:h-11 lg:w-11 lg:border"
+              className="items-center justify-center rounded-full w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-99999 dark:border-gray-800 lg:flex dark:text-gray-400 lg:h-11 lg:w-11 lg:border"
               aria-label="Toggle Sidebar"
             >
               <svg
-                width="16"
-                height="12"
-                viewBox="0 0 16 12"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M0.583252 1C0.583252 0.585788 0.919038 0.25 1.33325 0.25H14.6666C15.0808 0.25 15.4166 0.585786 15.4166 1C15.4166 1.41421 15.0808 1.75 14.6666 1.75L1.33325 1.75C0.919038 1.75 0.583252 1.41422 0.583252 1ZM0.583252 11C0.583252 10.5858 0.919038 10.25 1.33325 10.25L14.6666 10.25C15.0808 10.25 15.4166 10.5858 15.4166 11C15.4166 11.4142 15.0808 11.75 14.6666 11.75L1.33325 11.75C0.919038 11.75 0.583252 11.4142 0.583252 11ZM1.33325 5.25C0.919038 5.25 0.583252 5.58579 0.583252 6C0.583252 6.41421 0.919038 6.75 1.33325 6.75L7.99992 6.75C8.41413 6.75 8.74992 6.41421 8.74992 6C8.74992 5.58579 8.41413 5.25 7.99992 5.25L1.33325 5.25Z"
-                  fill="currentColor"
+                  d="M3 5H17M3 10H17M3 15H17"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
                 />
               </svg>
             </button>
@@ -55,14 +54,14 @@ function DesktopHeader(): JSX.Element {
                   </span>
                   <input
                     type="text"
-                    placeholder="Search or type command..."
+                    placeholder="Type command..."
                     className="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-12 pr-14 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-gray-900 dark:bg-white/[0.03] dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 xl:w-[430px]"
                   />
 
-                  <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400">
-                    <span> ⌘ </span>
-                    <span> K </span>
-                  </button>
+                  {/* <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400">
+                    <span> Search </span>
+                     
+                  </button> */}
                 </div>
               </form>
             </div>
