@@ -63,7 +63,7 @@ function DesktopMenu(): JSX.Element {
             width={150}
             height={40}
           />
-          <div className="mt-3 mb-3">
+          <div className="mt-3 mb-2">
             <span className="text-[12px] text-gray-400">MENU</span>
           </div>
         </header>
@@ -74,16 +74,16 @@ function DesktopMenu(): JSX.Element {
           return (
             <div
               key={index}
-              className=" flex justify-center gap-1  flex-col items-start "
+              className=" flex justify-center gap-1  flex-col items-start  "
             >
               {hasChildren ? (
                 // Item Sub Menu
                 <div
                   onClick={() => toggleMenu(item.name)}
-                  className={`flex items-center cursor-pointer gap-3 py-1`}
+                  className={`flex items-center cursor-pointer gap-3 py-1 w-60`}
                 >
                   <button
-                    className={`menu-item flex gap-3 items-center  ${active || isOpen ? "menu-item-active " : "menu-item-inactive"}`}
+                    className={`menu-item flex gap-3 items-center w-full  ${active || isOpen ? "menu-item-active " : "menu-item-inactive"}`}
                   >
                     <span
                       className={`menu-item-icon-size  ${
@@ -97,7 +97,7 @@ function DesktopMenu(): JSX.Element {
                     <span className="text-md font-medium"> {item.name}</span>
 
                     <span
-                      className={`ml-20 w-5 h-5 transition-transform duration-200 ${
+                      className={`ml-auto w-5 h-5 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-brand-500" : "text-gray-400"
                       }`}
                     >
