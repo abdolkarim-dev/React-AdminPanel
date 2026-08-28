@@ -54,7 +54,7 @@ function DesktopMenu(): JSX.Element {
 
   return (
     <div className=" ">
-      <div className="flex flex-col fixed top-0 px-5 left-0 z-50 h-screen lg:mt-0  bg-white  text-gray-900   transition-all duration-300 ease-in-out   border-r border-gray-200">
+      <div className="flex flex-col top-0 px-5 left-0 z-50 h-screen lg:mt-0  bg-white  text-gray-900   transition-all duration-300 ease-in-out   border-r border-gray-200">
         <header className="mt-5 ml-1">
           <img
             className="dark:hidden"
