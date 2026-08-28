@@ -63,7 +63,7 @@ function DesktopMenu(): JSX.Element {
             width={150}
             height={40}
           />
-          <div className="mt-3 mb-2">
+          <div className="mt-3 mb-1">
             <span className="text-[12px] text-gray-400">MENU</span>
           </div>
         </header>
@@ -110,7 +110,7 @@ function DesktopMenu(): JSX.Element {
                 <NavLink
                   to={item.path!}
                   className={({ isActive }) =>
-                    `flex flex-col menu-item mb-1 ${
+                    `flex flex-col menu-item mb-1   ${
                       isActive ? "menu-item-active" : "menu-item-inactive"
                     }`
                   }
