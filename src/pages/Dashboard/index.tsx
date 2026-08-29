@@ -1,16 +1,25 @@
 import { Route, Routes } from "react-router-dom";
 import type { JSX } from "react";
 import Home from "./pages/Home";
+import Forms from "./pages/Forms";
+import Tables from "./pages/Tables";
+import UserProfile from "./pages/UserProfile";
 import DashboardLayout from "./layout/DashboardLayout";
+import { SidebarProvider } from "@/contexts/SidebarContext";
 function Dashboard(): JSX.Element {
-    return (
-        <DashboardLayout> 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Home />} />
-            </Routes>
-        </DashboardLayout>
-    )
+  return (
+    <SidebarProvider>
+      <DashboardLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Home />} />
+          <Route path="/user_profile" element={<UserProfile />} />
+          <Route path="/forms/form_elements" element={<Forms />} />
+          <Route path="/tables/basic_tables" element={<Tables />} />
+        </Routes>
+      </DashboardLayout>
+    </SidebarProvider>
+  );
 }
 
 export default Dashboard;
