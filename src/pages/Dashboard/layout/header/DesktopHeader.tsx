@@ -18,7 +18,7 @@ function DesktopHeader(): JSX.Element {
   };
   const toggleApplicationMenu = () => {
     setApplicationMenuOpen(!isApplicationMenuOpen);
-  };
+  }; 
 
   useEffect(() => {
     console.log(isApplicationMenuOpen);
