@@ -22,7 +22,7 @@ import { useSidebar } from "@/contexts/SidebarContext";
 import { div } from "framer-motion/client";
 function DesktopMenu(): JSX.Element {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
-  const showMenuText = isExpanded || isHovered || isMobileOpen;
+  const showMenu = isExpanded || isHovered || isMobileOpen;
   const menuItems = MenuData();
   const location = useLocation();
 
@@ -75,7 +75,7 @@ function DesktopMenu(): JSX.Element {
         onMouseLeave={() => setIsHovered(false)}
       >
         <header className="ml-1">
-          {showMenuText ? (
+          {showMenu ? (
             <div className="mt-3">
               <img
                 className="dark:hidden"
@@ -97,7 +97,7 @@ function DesktopMenu(): JSX.Element {
             </div>
           )}
 
-          <div className="mt-3 mb-1">
+          <div className={`mt-3 mb-1  ${showMenu ? "":"ml-1"}`}>
             <span className="text-[12px] text-gray-400">MENU</span>
           </div>
         </header>
@@ -131,13 +131,13 @@ function DesktopMenu(): JSX.Element {
                     </span>
                     <span
                       className={`text-md font-medium ${
-                        showMenuText ? "block" : "hidden"
+                        showMenu ? "block" : "hidden"
                       }`}
                     >
                       {item.name}
                     </span>
 
-                    {showMenuText && (
+                    {showMenu && (
                       <span
                         className={`ml-auto w-5 h-5 transition-transform duration-200 ${
                           isOpen ? "rotate-180 text-brand-500" : "text-gray-400"
@@ -168,7 +168,7 @@ function DesktopMenu(): JSX.Element {
                     >
                       {item.icon}
                     </span>
-                    {showMenuText && (
+                    {showMenu && (
                       <span className="text-md font-medium">{item.name}</span>
                     )}
                   </div>
