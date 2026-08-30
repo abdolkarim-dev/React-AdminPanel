@@ -18,11 +18,7 @@ function DesktopHeader(): JSX.Element {
   };
   const toggleApplicationMenu = () => {
     setApplicationMenuOpen(!isApplicationMenuOpen);
-  }; 
-
-  useEffect(() => {
-    console.log(isApplicationMenuOpen);
-  }, [isApplicationMenuOpen]);
+  };  
   return (
     <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999  lg:border-b ">
       <div className="flex items-center justify-between gap-4 w-full">

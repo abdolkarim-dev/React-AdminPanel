@@ -2,8 +2,12 @@ import { useState } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { Link } from "react-router";
-
-export default function NotificationDropdown() {
+type NotificationProps = {
+  isMobileNoti?: boolean;
+};
+export default function NotificationDropdown({
+  isMobileNoti,
+}: NotificationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
 
@@ -23,7 +27,9 @@ export default function NotificationDropdown() {
   return (
     <div className="relative">
       <button
-        className="relative flex items-center justify-center text-gray-500 transition-colors bg-white border border-gray-200 rounded-full dropdown-toggle hover:text-gray-700 h-11 w-11 hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+        className="relative flex items-center justify-center text-gray-500 transition-colors
+         bg-white border border-gray-200 rounded-full dropdown-toggle hover:text-gray-700 h-11 w-11
+          hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
         onClick={handleClick}
       >
         <span
@@ -51,9 +57,10 @@ export default function NotificationDropdown() {
       <Dropdown
         isOpen={isOpen}
         onClose={closeDropdown}
-        className="absolute -right-[240px] mt-[17px] flex h-[480px] w-[350px] flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark sm:w-[361px] lg:right-0"
+        className={`absolute ${isMobileNoti ? "!-right-75 " : " -right-60"}   mt-4.25 flex h-120 w-87.5 flex-col rounded-2xl 
+        border border-gray-200 bg-white p-3 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark sm:w-90.25 lg:right-0`}
       >
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-100 dark:border-gray-700">
+        <div className="flex  items-center justify-between pb-3 mb-3 border-b border-gray-100 dark:border-gray-700">
           <h5 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
             Notification
           </h5>
