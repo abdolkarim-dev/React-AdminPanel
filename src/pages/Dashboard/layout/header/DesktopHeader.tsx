@@ -1,18 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { JSX } from "react/jsx-runtime";
 import { ThemeToggleButton } from "@/components/Header/ThemeToggleButton";
 import NotificationDropdown from "@/components/Header/NotificationDropdown";
 import UserDropdown from "@/components/Header/UserDropdown";
+import { useSidebar } from "@/contexts/SidebarContext";
 
 function DesktopHeader(): JSX.Element {
   const [isApplicationMenuOpen, setApplicationMenuOpen] = useState(false);
+  const { isMobileOpen, toggleSidebar, toggleMobileSidebar } = useSidebar();
+
+  const handleToggle = () => {
+    if (window.innerWidth >= 1024) {
+      toggleSidebar();
+    } else {
+      toggleMobileSidebar();
+    }
+  };
+  const toggleApplicationMenu = () => {
+    setApplicationMenuOpen(!isApplicationMenuOpen);
+  };
+
+  useEffect(() => {
+    console.log(isApplicationMenuOpen);
+  }, [isApplicationMenuOpen]);
   return (
     <header className="sticky top-0 flex w-full bg-white border-gray-200 z-99999  lg:border-b ">
       <div className="flex items-center justify-between gap-4 w-full">
         <div className="flex items-center justify-between ml-6 gap-4">
+          {/* toggle menu */}
           <div>
             <button
-              className="items-center justify-center rounded-full w-10 h-10 text-gray-500 border-gray-200 z-99999 dark:border-gray-800 lg:flex dark:text-gray-400 lg:h-11 lg:w-11 lg:border"
+              onClick={handleToggle}
+              className="items-center justify-center rounded-full w-10 h-10 text-gray-500  lg:flex   lg:h-11 lg:w-11 lg:border"
               aria-label="Toggle Sidebar"
             >
               <svg
@@ -31,6 +50,7 @@ function DesktopHeader(): JSX.Element {
               </svg>
             </button>
           </div>
+          {/* search menu */}
           <div>
             <div className="hidden lg:block  ">
               <form>
@@ -67,6 +87,7 @@ function DesktopHeader(): JSX.Element {
             </div>
           </div>
         </div>
+        {/* profile menu */}
         <div
           className={`${
             isApplicationMenuOpen ? "flex" : "hidden"

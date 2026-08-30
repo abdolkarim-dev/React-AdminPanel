@@ -13,6 +13,7 @@ export default function UserDropdown() {
   function closeDropdown() {
     setIsOpen(false);
   }
+  
   return (
     <div className="relative">
       <button

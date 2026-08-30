@@ -17,7 +17,10 @@ import {
   TableIcon,
   UserCircleIcon,
 } from "@/assets/icons";
+import { useSidebar } from "@/contexts/SidebarContext";
 function DesktopMenu(): JSX.Element {
+  const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
+
   const menuItems = MenuData();
   const location = useLocation();
 
@@ -53,8 +56,22 @@ function DesktopMenu(): JSX.Element {
   };
 
   return (
-    <div className=" ">
-      <div className="flex flex-col top-0 px-5 left-0 z-50 h-screen lg:mt-0  bg-white  text-gray-900   transition-all duration-300 ease-in-out   border-r border-gray-200">
+    <div>
+      <div
+        className={`flex flex-col top-0 px-5 left-0 z-50 h-screen lg:mt-0  bg-white  text-gray-900  
+       transition-all duration-300 ease-in-out   border-r border-gray-200 
+       ${
+         isExpanded || isMobileOpen
+           ? "w-[290px]"
+           : isHovered
+             ? "w-[290px]"
+             : "w-[90px]"
+       }
+        ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
+        lg:translate-x-0`}
+        onMouseEnter={() => !isExpanded && setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <header className="mt-5 ml-1">
           <img
             className="dark:hidden"
@@ -71,6 +88,7 @@ function DesktopMenu(): JSX.Element {
           const isOpen = !!openMenus[item.name];
           let hasChildren = !!item.subItems?.length;
           const active = isItemActive(item);
+          const showMenuText = isExpanded || isHovered || isMobileOpen;
           return (
             <div
               key={index}
@@ -94,15 +112,23 @@ function DesktopMenu(): JSX.Element {
                     >
                       {item.icon}
                     </span>
-                    <span className="text-md font-medium"> {item.name}</span>
-
                     <span
-                      className={`ml-auto w-5 h-5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-brand-500" : "text-gray-400"
+                      className={`text-md font-medium ${
+                        showMenuText ? "block" : "hidden"
                       }`}
                     >
-                      <ChevronDownIcon />
+                      {item.name}
                     </span>
+
+                    {showMenuText && (
+                      <span
+                        className={`ml-auto w-5 h-5 transition-transform duration-200 ${
+                          isOpen ? "rotate-180 text-brand-500" : "text-gray-400"
+                        }`}
+                      >
+                        <ChevronDownIcon />
+                      </span>
+                    )}
                   </button>
                 </div>
               ) : (
@@ -125,7 +151,9 @@ function DesktopMenu(): JSX.Element {
                     >
                       {item.icon}
                     </span>
-                    {item.name}
+                    {showMenuText && (
+                      <span className="text-md font-medium">{item.name}</span>
+                    )}
                   </div>
                 </NavLink>
               )}
