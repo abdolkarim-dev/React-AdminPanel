@@ -4,6 +4,7 @@ import MenuData, { type MenuItem } from "./components/MenuData";
 import { Link, useLocation, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HeaderLogo from "@/assets/images/HeaderSite/Header.png";
+import HeaderLogoIcon from "@/assets/images/HeaderSite/HeaderIcon.png";
 import {
   BoxCubeIcon,
   CalenderIcon,
@@ -18,9 +19,10 @@ import {
   UserCircleIcon,
 } from "@/assets/icons";
 import { useSidebar } from "@/contexts/SidebarContext";
+import { div } from "framer-motion/client";
 function DesktopMenu(): JSX.Element {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
-
+  const showMenuText = isExpanded || isHovered || isMobileOpen;
   const menuItems = MenuData();
   const location = useLocation();
 
@@ -72,14 +74,29 @@ function DesktopMenu(): JSX.Element {
         onMouseEnter={() => !isExpanded && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <header className="mt-5 ml-1">
-          <img
-            className="dark:hidden"
-            src={HeaderLogo}
-            alt="Logo"
-            width={150}
-            height={40}
-          />
+        <header className="ml-1">
+          {showMenuText ? (
+            <div className="mt-3">
+              <img
+                className="dark:hidden"
+                src={HeaderLogo}
+                alt="Logo"
+                width={150}
+                height={40}
+              />
+            </div>
+          ) : (
+            <div className="mt-2">
+              <img
+                className="dark:hidden"
+                src={HeaderLogoIcon}
+                alt="Logo"
+                width={40}
+                height={40}
+              />
+            </div>
+          )}
+
           <div className="mt-3 mb-1">
             <span className="text-[12px] text-gray-400">MENU</span>
           </div>
@@ -88,7 +105,7 @@ function DesktopMenu(): JSX.Element {
           const isOpen = !!openMenus[item.name];
           let hasChildren = !!item.subItems?.length;
           const active = isItemActive(item);
-          const showMenuText = isExpanded || isHovered || isMobileOpen;
+
           return (
             <div
               key={index}
