@@ -11,9 +11,9 @@ function MainMenu() {
             <div className="hidden lg:block">
                 <DesktopMenu />
             </div>
-            <div className="lg:hidden">
+             <div className="lg:hidden">
                 <MobileMenu />
-            </div>
+            </div>  
         </Fragment>
     )
 }
