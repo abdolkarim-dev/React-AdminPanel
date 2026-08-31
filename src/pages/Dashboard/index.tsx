@@ -2,10 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import type { JSX } from "react";
 import Home from "./pages/Home";
 import Forms from "./pages/Forms";
-import Tables from "./pages/Tables"; 
+import Tables from "./pages/Tables";
 import UserProfile from "./pages/UserProfile";
 import DashboardLayout from "./layout/DashboardLayout";
 import { SidebarProvider } from "@/contexts/SidebarContext";
+import Buttons from "./pages/Elements/Buttons";
 function Dashboard(): JSX.Element {
   return (
     <SidebarProvider>
@@ -16,6 +17,7 @@ function Dashboard(): JSX.Element {
           <Route path="/user_profile" element={<UserProfile />} />
           <Route path="/forms/form_elements" element={<Forms />} />
           <Route path="/tables/basic_tables" element={<Tables />} />
+          <Route path="/elements/buttons" element={<Buttons />} />
         </Routes>
       </DashboardLayout>
     </SidebarProvider>
