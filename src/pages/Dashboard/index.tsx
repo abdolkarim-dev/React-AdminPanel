@@ -6,7 +6,13 @@ import Tables from "./pages/Tables";
 import UserProfile from "./pages/UserProfile";
 import DashboardLayout from "./layout/DashboardLayout";
 import { SidebarProvider } from "@/contexts/SidebarContext";
+import Alerts from "./pages/Elements/Alerts";
 import Buttons from "./pages/Elements/Buttons";
+import Badges from "./pages/Elements/Badges";
+import Avatars from "./pages/Elements/Avatars";
+import Images from "./pages/Elements/Images";
+import Videos from "./pages/Elements/Videos";
+
 function Dashboard(): JSX.Element {
   return (
     <SidebarProvider>
