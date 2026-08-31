@@ -47,6 +47,23 @@ function MenuData(): MenuItem[] {
       icon: <TableIcon />,
       subItems: [{ name: "Basic Tables", path: "/tables/basic_tables" }],
     },
+    {
+      name: "Elements",
+      icon: <BoxCubeIcon />,
+      subItems: [
+        { name: "Alerts", path: "/elements/alerts" },
+        { name: "Buttons", path: "/elements/buttons" },
+        { name: "Badge", path: "/elements/badge" },
+        { name: "Avatar", path: "/elements/avatar" },
+        { name: "Images", path: "/elements/images" },
+        { name: "Videos", path: "/elements/videos" },
+      ],
+    },
+     {
+      name: "Charts",
+      icon: <PieChartIcon />,
+      subItems: [{ name: "Basic Tables", path: "/charts/basic_tables" }],
+    },
   ];
 
   return menuData;

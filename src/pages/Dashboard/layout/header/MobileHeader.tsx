@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import type { JSX } from "react/jsx-runtime";
-import { ThemeToggleButton } from "@/components/Header/ThemeToggleButton";
+import type { JSX } from "react/jsx-runtime"; 
 import NotificationDropdown from "@/components/Header/NotificationDropdown";
 import UserDropdown from "@/components/Header/UserDropdown";
 import HeaderLogo from "@/assets/images/HeaderSite/Header.png";
@@ -88,7 +87,7 @@ function MobileHeader(): JSX.Element {
             </svg>
           </button>
           {isApplicationMenuOpen && (
-            <div className="absolute right-0 left-0 top-16 bg-white w-full shadow-sm ">
+            <div className="absolute right-0 left-0 top-14.5 bg-white w-full shadow-sm ">
               <div
                 className={`flex items-center justify-between  bg-white p-3   `}
               >

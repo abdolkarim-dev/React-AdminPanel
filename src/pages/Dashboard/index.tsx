@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import type { JSX } from "react";
 import Home from "./pages/Home";
 import Forms from "./pages/Forms";
-import Tables from "./pages/Tables";
+import Tables from "./pages/Tables"; 
 import UserProfile from "./pages/UserProfile";
 import DashboardLayout from "./layout/DashboardLayout";
 import { SidebarProvider } from "@/contexts/SidebarContext";
