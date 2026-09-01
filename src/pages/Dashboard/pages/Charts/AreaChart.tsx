@@ -2,7 +2,7 @@ import ComponentDiv from "@/components/common/componentDiv";
 import AreaChartOne from "@/components/Charts/AreaChart";
 export default function AreaChart() {
   return (
-    <ComponentDiv>
+    <ComponentDiv >
       <div className="bg-white">
         <AreaChartOne />
       </div>

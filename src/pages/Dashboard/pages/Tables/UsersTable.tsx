@@ -4,9 +4,9 @@ import ComponentCard from "@/components/common/componentCard";
 
 export default function UsersTable() {
   return (
-    <div className="p-12">
+    <div className="p-12 mt-10 lg:mt-0  ">
       <ComponentCard title="Base Table">
-        <ComponentDiv className="!p-0">
+        <ComponentDiv marginTop={false} >
           <div className="bg-white">
             <UsersTableNew />
           </div>

@@ -65,7 +65,7 @@ function MobileMenu(): JSX.Element {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed top-[66px]  left-0 h-full"
+          className="fixed top-[66px] !bg-white left-0 h-full z-999999"
         >
           <div
             className={`   flex flex-col top-0 px-5 left-0  h-screen lg:mt-0  bg-white  text-gray-900  

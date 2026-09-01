@@ -203,7 +203,7 @@ const tableData: User[] = [
 
 export default function UsersTable() {
   return (
-    <div className="mt-16 lg:mt-0 overflow-hidden rounded-xl border border-gray-200 bg-white  ">
+    <div className=" overflow-hidden rounded-xl border border-gray-200 bg-white  ">
       <div className="max-w-full overflow-x-auto">
         <Table>
           {/* Table Header */}
