@@ -59,10 +59,14 @@ function MenuData(): MenuItem[] {
         { name: "Videos", path: "/elements/videos" },
       ],
     },
-     {
+    {
       name: "Charts",
       icon: <PieChartIcon />,
-      subItems: [{ name: "Chart One", path: "/charts/chartone" }],
+      subItems: [
+        { name: "Bar Chart", path: "/charts/bar_chart" },
+        { name: "Area Chart", path: "/charts/area_chart" },
+        { name: "Line Chart", path: "/charts/line_chart" },
+      ],
     },
   ];
 

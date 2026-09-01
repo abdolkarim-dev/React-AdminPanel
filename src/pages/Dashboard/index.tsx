@@ -12,8 +12,9 @@ import Badges from "./pages/Elements/Badges";
 import Avatars from "./pages/Elements/Avatars";
 import Images from "./pages/Elements/Images";
 import Videos from "./pages/Elements/Videos";
-import LineChartOne from "@/components/Charts/LineChartOne";
-import LineChartTwo from "@/components/Charts/LineChartTwo";
+import BarChart from "./pages/Charts/BarChart";
+import AreaChart from "./pages/Charts/AreaChart";
+import LineChart from "./pages/Charts/LineChart";
 function Dashboard(): JSX.Element {
   return (
     <SidebarProvider>
@@ -32,7 +33,9 @@ function Dashboard(): JSX.Element {
           <Route path="/elements/Images" element={<Images />} />
           <Route path="/elements/Videos" element={<Videos />} />
           {/* Charts */}
-          <Route path="/charts/chartone" element={<LineChartTwo />} />
+          <Route path="/charts/bar_chart" element={<BarChart />} />
+          <Route path="/charts/area_chart" element={<AreaChart />} />
+          <Route path="/charts/line_chart" element={<LineChart />} />
         </Routes>
       </DashboardLayout>
     </SidebarProvider>
