@@ -53,8 +53,8 @@ function MenuData(): MenuItem[] {
       subItems: [
         { name: "Alerts", path: "/elements/alerts" },
         { name: "Buttons", path: "/elements/buttons" },
-        { name: "Badge", path: "/elements/badge" },
-        { name: "Avatar", path: "/elements/avatar" },
+        { name: "Badge", path: "/elements/badges" },
+        { name: "Avatar", path: "/elements/avatars" },
         { name: "Images", path: "/elements/images" },
         { name: "Videos", path: "/elements/videos" },
       ],
@@ -62,7 +62,7 @@ function MenuData(): MenuItem[] {
      {
       name: "Charts",
       icon: <PieChartIcon />,
-      subItems: [{ name: "Basic Tables", path: "/charts/basic_tables" }],
+      subItems: [{ name: "Chart One", path: "/charts/chartone" }],
     },
   ];
 

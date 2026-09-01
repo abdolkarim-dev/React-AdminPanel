@@ -7,7 +7,7 @@ import ComponentCard from "@/components/common/ComponentCard";
 
 export default function Images() {
   return (
-    <> 
+    <ComponentDiv> 
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Responsive image">
           <ResponsiveImage />
@@ -19,6 +19,6 @@ export default function Images() {
           <ThreeColumnImageGrid />
         </ComponentCard>
       </div>
-    </>
+    </ComponentDiv>
   );
 }

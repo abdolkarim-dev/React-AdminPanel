@@ -61,7 +61,7 @@ function DesktopMenu(): JSX.Element {
     <div>
       <div
         className={`flex flex-col top-0 px-5 left-0 z-50 h-screen lg:mt-0  bg-white  text-gray-900  
-       transition-all duration-300 ease-in-out   border-r border-gray-200 
+       transition-all duration-300 ease-in-out border-r border-gray-200 
        ${
          isExpanded || isMobileOpen
            ? "w-[290px]"
@@ -115,7 +115,7 @@ function DesktopMenu(): JSX.Element {
                 // Item Sub Menu
                 <div
                   onClick={() => toggleMenu(item.name)}
-                  className={`flex items-center cursor-pointer gap-3 py-1 w-60`}
+                  className={`flex items-center cursor-pointer gap-3 py-1 w-full`}
                 >
                   <button
                     className={`menu-item flex gap-3 items-center w-full  ${active || isOpen ? "menu-item-active " : "menu-item-inactive"}`}

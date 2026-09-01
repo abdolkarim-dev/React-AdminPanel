@@ -1,12 +1,11 @@
 import Alert from "@/components/ui/alert/Alert";
 import ComponentCard from "@/components/common/ComponentCard";
-import Button from "@/components/ui/button/Button";
-import { BoxIcon } from "@/assets/icons";
+
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Alerts() {
   return (
-    <>
+    <ComponentDiv>
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Success Alert">
           <Alert
@@ -73,6 +72,6 @@ export default function Alerts() {
           />
         </ComponentCard>
       </div>
-    </>
+    </ComponentDiv>
   );
 }

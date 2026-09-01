@@ -1,12 +1,11 @@
- import Badge from "@/components/ui/badge/Badge";
-import { PlusIcon } from "@/assets/icons"; 
+import Badge from "@/components/ui/badge/Badge";
+import { PlusIcon } from "@/assets/icons";
 import ComponentCard from "@/components/common/ComponentCard";
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Badges() {
   return (
-    <div>
-      
+    <ComponentDiv>
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="With Light Background">
           <div className="flex flex-wrap gap-4 sm:items-center sm:justify-center">
@@ -161,6 +160,6 @@ export default function Badges() {
           </div>
         </ComponentCard>
       </div>
-    </div>
+    </ComponentDiv>
   );
 }

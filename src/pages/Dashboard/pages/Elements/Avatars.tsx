@@ -1,11 +1,10 @@
- import ComponentCard from "@/components/common/ComponentCard";
+import ComponentCard from "@/components/common/ComponentCard";
 import Avatar from "@/components/ui/avatar/Avatar";
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Avatars() {
   return (
-    <>
-      
+    <ComponentDiv>
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Default Avatar">
           {/* Default Avatar (No Status) */}
@@ -113,6 +112,6 @@ export default function Avatars() {
           </div>
         </ComponentCard>
       </div>
-    </>
+    </ComponentDiv>
   );
 }
