@@ -203,50 +203,25 @@ const tableData: User[] = [
 
 export default function UsersTable() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
-      {/* ================= TOP ================= */}
-      <div className="flex flex-col gap-4 border-b border-gray-200 px-6 py-5 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
+    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
+      {/* Table Header / Top Bar */}
+      <div className="flex items-center justify-between border-b border-gray-200 px-6 py-5 dark:border-gray-800">
         <div>
-          <div className="flex items-center gap-2">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Team Members
-            </h3>
-
-            <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-              {tableData.length}
-            </span>
-          </div>
+          <h3 className="text-base font-semibold text-gray-800 dark:text-white">
+            Users
+          </h3>
 
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            Manage your team members and their access.
+            Manage and view all users in your organization
           </p>
         </div>
 
-        {/* Search */}
-        <div className="relative w-full sm:w-[240px]">
-          <svg
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
-            />
-          </svg>
-
-          <input
-            type="text"
-            placeholder="Search users..."
-            className="h-10 w-full rounded-lg border border-gray-200 bg-gray-50 pl-9 pr-3 text-sm text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-gray-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:focus:border-gray-600 dark:focus:bg-gray-800"
-          />
+        <div className="hidden rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600 sm:block dark:bg-gray-800 dark:text-gray-300">
+          {tableData.length} Users
         </div>
       </div>
 
-      {/* ================= TABLE ================= */}
+      {/* Table */}
       <div className="max-w-full overflow-x-auto">
         <Table className="min-w-[900px]">
           {/* Header */}
@@ -254,40 +229,38 @@ export default function UsersTable() {
             <TableRow>
               <TableCell
                 isHeader
-                className="w-[30%] px-6 py-4 text-left text-[11px] font-semibold uppercase tracking-wider text-gray-400"
+                className="px-6 py-4 text-left text-xs font-semibold text-gray-400"
               >
                 User
               </TableCell>
 
               <TableCell
                 isHeader
-                className="px-5 py-4 text-left text-[11px] font-semibold uppercase tracking-wider text-gray-400"
+                className="px-5 py-4 text-left text-xs font-semibold text-gray-400"
               >
                 Email
               </TableCell>
 
               <TableCell
                 isHeader
-                className="px-5 py-4 text-left text-[11px] font-semibold uppercase tracking-wider text-gray-400"
+                className="px-5 py-4 text-left text-xs font-semibold text-gray-400"
               >
                 Role
               </TableCell>
 
               <TableCell
                 isHeader
-                className="px-5 py-4 text-left text-[11px] font-semibold uppercase tracking-wider text-gray-400"
+                className="px-5 py-4 text-left text-xs font-semibold text-gray-400"
               >
                 Department
               </TableCell>
 
               <TableCell
                 isHeader
-                className="px-5 py-4 text-left text-[11px] font-semibold uppercase tracking-wider text-gray-400"
+                className="px-5 py-4 text-left text-xs font-semibold text-gray-400"
               >
                 Status
               </TableCell>
-
-              {/* <TableCell isHeader className="w-[60px] px-4 py-4" /> */}
             </TableRow>
           </TableHeader>
 
@@ -296,21 +269,22 @@ export default function UsersTable() {
             {tableData.map((user) => (
               <TableRow
                 key={user.id}
-                className="group transition-colors duration-150 hover:bg-gray-50/70 dark:hover:bg-gray-800/40"
+                className="group transition-all duration-200 hover:bg-gray-50/80 dark:hover:bg-gray-800/30"
               >
-                {/* USER */}
-                <TableCell className="px-6 py-4">
-                  <div className="flex items-center gap-3">
+                {/* User */}
+                <TableCell className="px-6 py-5">
+                  <div className="flex items-center gap-3.5">
                     {/* Avatar */}
-                    <div className="relative shrink-0">
+                    <div className="relative h-11 w-11 shrink-0">
                       <img
                         src={user.image}
                         alt={user.name}
-                        className="h-10 w-10 rounded-full object-cover ring-1 ring-gray-200 dark:ring-gray-700"
+                        className="h-11 w-11 rounded-full object-cover ring-1 ring-gray-200 dark:ring-gray-700"
                       />
 
+                      {/* Online indicator */}
                       {user.status === "Active" && (
-                        <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-green-500 dark:border-gray-900" />
+                        <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-green-500 dark:border-gray-900" />
                       )}
                     </div>
 
@@ -321,72 +295,49 @@ export default function UsersTable() {
                       </p>
 
                       <p className="mt-0.5 text-xs text-gray-400">
-                        ID #{user.id}
+                        User #{user.id}
                       </p>
                     </div>
                   </div>
                 </TableCell>
 
-                {/* EMAIL */}
-                <TableCell className="px-5 py-4">
+                {/* Email */}
+                <TableCell className="px-5 py-5">
                   <span className="text-sm text-gray-600 dark:text-gray-300">
                     {user.email}
                   </span>
                 </TableCell>
 
-                {/* ROLE */}
-                <TableCell className="px-5 py-4">
-                  <span className="inline-flex items-center rounded-md border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 dark:border-gray-700 dark:text-gray-300">
+                {/* Role */}
+                <TableCell className="px-5 py-5">
+                  <span className="inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     {user.role}
                   </span>
                 </TableCell>
 
-                {/* DEPARTMENT */}
-                <TableCell className="px-5 py-4">
+                {/* Department */}
+                <TableCell className="px-5 py-5">
                   <span className="text-sm text-gray-600 dark:text-gray-300">
                     {user.department}
                   </span>
                 </TableCell>
 
-                {/* STATUS */}
-                <TableCell className="px-5 py-4">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`h-2 w-2 rounded-full ${
+                {/* Status */}
+                <TableCell className="px-5 py-5">
+                  <div className="flex items-center">
+                    <Badge
+                      size="sm"
+                      color={
                         user.status === "Active"
-                          ? "bg-green-500"
+                          ? "success"
                           : user.status === "Pending"
-                            ? "bg-yellow-500"
-                            : "bg-red-500"
-                      }`}
-                    />
-
-                    <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                      {user.status}
-                    </span>
-                  </div>
-                </TableCell>
-
-                {/* ACTION */}
-                <TableCell className="px-4 py-4">
-                  <button
-                    type="button"
-                    className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 opacity-0 transition-all hover:bg-gray-100 hover:text-gray-700 group-hover:opacity-100 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  >
-                    <svg
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                            ? "warning"
+                            : "error"
+                      }
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 5.5h.01M12 12h.01M12 18.5h.01"
-                      />
-                    </svg>
-                  </button>
+                      {user.status}
+                    </Badge>
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
@@ -394,52 +345,18 @@ export default function UsersTable() {
         </Table>
       </div>
 
-      {/* ================= FOOTER ================= */}
-      <div className="flex flex-col gap-3 border-t border-gray-100 px-6 py-4 sm:flex-row sm:items-center sm:justify-between dark:border-gray-800">
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Showing{" "}
-          <span className="font-medium text-gray-700 dark:text-gray-200">
-            {tableData.length}
-          </span>{" "}
-          team members
+      {/* Bottom */}
+      <div className="flex items-center justify-between border-t border-gray-100 px-6 py-4 dark:border-gray-800">
+        <p className="text-xs text-gray-400">
+          Showing {tableData.length} users
         </p>
 
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-400 transition hover:bg-gray-50 hover:text-gray-700 dark:border-gray-700 dark:hover:bg-gray-800"
-          >
-            ‹
-          </button>
-
-          <button
-            type="button"
-            className="flex h-8 min-w-8 items-center justify-center rounded-lg bg-gray-900 px-2 text-xs font-medium text-white dark:bg-white dark:text-gray-900"
-          >
-            1
-          </button>
-
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
-          >
-            2
-          </button>
-
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-500 transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
-          >
-            3
-          </button>
-
-          <button
-            type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200 text-gray-400 transition hover:bg-gray-50 hover:text-gray-700 dark:border-gray-700 dark:hover:bg-gray-800"
-          >
-            ›
-          </button>
-        </div>
+        <button
+          type="button"
+          className="text-xs font-medium text-gray-600 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          View all →
+        </button>
       </div>
     </div>
   );
