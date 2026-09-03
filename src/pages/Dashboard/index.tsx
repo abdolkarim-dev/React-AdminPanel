@@ -15,31 +15,41 @@ import Videos from "./pages/Elements/Videos";
 import BarChart from "./pages/Charts/BarChart";
 import AreaChart from "./pages/Charts/AreaChart";
 import LineChart from "./pages/Charts/LineChart";
+import SignIn from "./pages/Auth/SignIn";
+import SignUp from "./pages/Auth/SignUp";
+
 function Dashboard(): JSX.Element {
   return (
-    <SidebarProvider>
-      <DashboardLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Home />} />
-          <Route path="/user_profile" element={<UserProfile />} />
-          <Route path="/forms/form_elements" element={<Forms />} />
-          {/* Table */}
-          <Route path="/tables/basic_tables" element={<UsersTable />} />
-          {/* Elements */}
-          <Route path="/elements/Alerts" element={<Alerts />} />
-          <Route path="/elements/Buttons" element={<Buttons />} />
-          <Route path="/elements/Badges" element={<Badges />} />
-          <Route path="/elements/Avatars" element={<Avatars />} />
-          <Route path="/elements/Images" element={<Images />} />
-          <Route path="/elements/Videos" element={<Videos />} />
-          {/* Charts */}
-          <Route path="/charts/bar_chart" element={<BarChart />} />
-          <Route path="/charts/area_chart" element={<AreaChart />} />
-          <Route path="/charts/line_chart" element={<LineChart />} />
-        </Routes>
-      </DashboardLayout>
-    </SidebarProvider>
+    <Routes> 
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+ 
+      <Route
+        path="/*"
+        element={
+          <SidebarProvider>
+            <DashboardLayout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Home />} />
+                <Route path="/user_profile" element={<UserProfile />} />
+                <Route path="/forms/form_elements" element={<Forms />} />
+                <Route path="/tables/basic_tables" element={<UsersTable />} />
+                <Route path="/elements/Alerts" element={<Alerts />} />
+                <Route path="/elements/Buttons" element={<Buttons />} />
+                <Route path="/elements/Badges" element={<Badges />} />
+                <Route path="/elements/Avatars" element={<Avatars />} />
+                <Route path="/elements/Images" element={<Images />} />
+                <Route path="/elements/Videos" element={<Videos />} />
+                <Route path="/charts/bar_chart" element={<BarChart />} />
+                <Route path="/charts/area_chart" element={<AreaChart />} />
+                <Route path="/charts/line_chart" element={<LineChart />} />
+              </Routes>
+            </DashboardLayout>
+          </SidebarProvider>
+        }
+      />
+    </Routes>
   );
 }
 
