@@ -14,6 +14,8 @@
     "framer-motion": "^13.1.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-dropzone": "^20.1.1",
+    "react-flatpickr": "^4.0.11",
     "react-router-dom": "^7.18.2",
     "recharts": "^3.10.1",
     "shadcn": "^4.19.0",

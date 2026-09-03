@@ -1,10 +1,10 @@
-import ComponentCard from "@/components/common/ComponentCard";
+import ComponentCard from "@/components/common/componentCard";
 import Avatar from "@/components/ui/avatar/Avatar";
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Avatars() {
   return (
-    <ComponentDiv>
+    <ComponentDiv marginTop={false}>
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Default Avatar">
           {/* Default Avatar (No Status) */}

@@ -1,11 +1,11 @@
-import ComponentCard from "@/components/common/ComponentCard"; 
+import ComponentCard from "@/components/common/componentCard"; 
 import Button from "@/components/ui/button/Button";
 import { BoxIcon } from "@/assets/icons";
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Buttons() {
   return (
-    <ComponentDiv>
+    <ComponentDiv marginTop={false}>
       
         <div className="space-y-5 sm:space-y-6">
           {/* Primary Button */}

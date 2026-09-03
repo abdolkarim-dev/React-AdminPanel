@@ -1,4 +1,4 @@
-import ComponentCard from "@/components/common/ComponentCard";  
+import ComponentCard from "@/components/common/componentCard";  
 import FourIsToThree from "@/components/ui/videos/FourIsToThree";
 import OneIsToOne from "@/components/ui/videos/OneIsToOne";
 import SixteenIsToNine from "@/components/ui/videos/SixteenIsToNine";
@@ -7,7 +7,7 @@ import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Videos() {
   return (
-    <ComponentDiv> 
+    <ComponentDiv marginTop={false}> 
       <div className="grid grid-cols-1 gap-5 sm:gap-6 xl:grid-cols-2">
         <div className="space-y-5 sm:space-y-6">
           <ComponentCard title="Video Ratio 16:9">

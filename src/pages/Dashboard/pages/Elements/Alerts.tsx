@@ -1,11 +1,11 @@
 import Alert from "@/components/ui/alert/Alert";
-import ComponentCard from "@/components/common/ComponentCard";
+import ComponentCard from "@/components/common/componentCard";
 
 import ComponentDiv from "@/components/common/componentDiv";
 
 export default function Alerts() {
   return (
-    <ComponentDiv>
+    <ComponentDiv marginTop={false}>
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Success Alert">
           <Alert

@@ -1,13 +1,13 @@
  import ResponsiveImage from "@/components/ui/images/ResponsiveImage";
 import TwoColumnImageGrid from "@/components/ui/images/TwoColumnImageGrid";
 import ThreeColumnImageGrid from "@/components/ui/images/ThreeColumnImageGrid";
-import ComponentCard from "@/components/common/ComponentCard";
+import ComponentCard from "@/components/common/componentCard";
  import ComponentDiv from "@/components/common/componentDiv";
 
 
 export default function Images() {
   return (
-    <ComponentDiv> 
+    <ComponentDiv marginTop={false}> 
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Responsive image">
           <ResponsiveImage />

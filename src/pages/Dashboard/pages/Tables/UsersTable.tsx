@@ -4,7 +4,7 @@ import ComponentCard from "@/components/common/componentCard";
 
 export default function UsersTable() {
   return (
-    <div className="p-12 mt-10 lg:mt-0  ">
+     
       <ComponentCard title="Base Table">
         <ComponentDiv marginTop={false} >
           <div className="bg-white">
@@ -12,6 +12,6 @@ export default function UsersTable() {
           </div>
         </ComponentDiv>
       </ComponentCard>
-    </div>
+    
   );
 }

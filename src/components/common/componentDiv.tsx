@@ -12,9 +12,7 @@ function ComponentDiv({
   className = "",
 }: ComponentDivProps) {
   return (
-    <div
-      className={`p-4 ${marginTop ? "mt-20 " : "lg:mt-0"}  mx-auto max-w-(--breakpoint-2xl) md:p-6 ${className}`}
-    >
+    <div className={` ${marginTop ? "" : "mt-16 lg:mt-0"}  ${className}`}>
       {children}
     </div>
   );
