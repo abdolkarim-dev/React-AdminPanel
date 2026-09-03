@@ -6,70 +6,90 @@ import Label from "../form/Label";
 
 export default function UserInfoCard() {
   const { isOpen, openModal, closeModal } = useModal();
+
   const handleSave = () => {
     // Handle save logic here
     console.log("Saving changes...");
     closeModal();
   };
-  return (
-    <div className="p-5 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div>
-          <h4 className="text-lg font-semibold text-gray-800 dark:text-white/90 lg:mb-6">
-            Personal Information
-          </h4>
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-            <div>
-              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 lg:p-6">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        {/* Content */}
+        <div className="w-full">
+          <div className="mb-6">
+            <h4 className="text-lg font-semibold text-gray-800 dark:text-white/90">
+              Personal Information
+            </h4>
+
+            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+              Your personal information
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* First Name */}
+            <div className="rounded-xl bg-gray-50 p-4 dark:bg-white/[0.03]">
+              <p className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
                 First Name
               </p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                Musharof
+
+              <p className="text-sm font-semibold text-gray-800 dark:text-white/90">
+                Abdolkarim
               </p>
             </div>
 
-            <div>
-              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+            {/* Last Name */}
+            <div className="rounded-xl bg-gray-50 p-4 dark:bg-white/[0.03]">
+              <p className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
                 Last Name
               </p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                Chowdhury
+
+              <p className="text-sm font-semibold text-gray-800 dark:text-white/90">
+                Bazdar
               </p>
             </div>
 
-            <div>
-              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
-                Email address
+            {/* Email */}
+            <div className="rounded-xl bg-gray-50 p-4 dark:bg-white/[0.03]">
+              <p className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
+                Email Address
               </p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                randomuser@pimjo.com
+
+              <p className="truncate text-sm font-semibold text-gray-800 dark:text-white/90">
+                bazdarabdolkarim@gmail.com
               </p>
             </div>
 
-            <div>
-              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+            {/* Phone */}
+            <div className="rounded-xl bg-gray-50 p-4 dark:bg-white/[0.03]">
+              <p className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
                 Phone
               </p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                +09 363 398 46
+
+              <p className="text-sm font-semibold text-gray-800 dark:text-white/90">
+                +98 917 382 6650
               </p>
             </div>
 
-            <div>
-              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+            {/* Bio */}
+            <div className="rounded-xl bg-gray-50 p-4 dark:bg-white/[0.03]">
+              <p className="mb-2 text-xs font-medium text-gray-500 dark:text-gray-400">
                 Bio
               </p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                Team Manager
+
+              <p className="text-sm font-semibold text-gray-800 dark:text-white/90">
+                I'm abdolkarim
               </p>
             </div>
           </div>
         </div>
 
+        {/* Edit Button */}
         <button
           onClick={openModal}
-          className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200 lg:inline-flex lg:w-auto"
+          className="flex shrink-0 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-white/[0.05] dark:hover:text-white lg:w-auto"
         >
           <svg
             className="fill-current"
@@ -90,88 +110,99 @@ export default function UserInfoCard() {
         </button>
       </div>
 
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">
-        <div className="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
-          <div className="px-2 pr-14">
-            <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
+      {/* Modal */}
+      <Modal isOpen={isOpen} onClose={closeModal} className="m-4 max-w-[700px]">
+        <div className="relative w-full max-w-[700px] overflow-y-auto rounded-2xl bg-white p-5 dark:bg-gray-900 sm:p-6 lg:p-8">
+          {/* Modal Header */}
+          <div className="mb-7 border-b border-gray-100 pb-5 dark:border-gray-800">
+            <h4 className="text-xl font-semibold text-gray-800 dark:text-white/90">
               Edit Personal Information
             </h4>
-            <p className="mb-6 text-sm text-gray-500 dark:text-gray-400 lg:mb-7">
+
+            <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
               Update your details to keep your profile up-to-date.
             </p>
           </div>
+
           <form className="flex flex-col">
-            <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">
+            {/* Modal Content */}
+            <div className="custom-scrollbar max-h-[450px] overflow-y-auto px-1">
+              {/* Social Links */}
               <div>
-                <h5 className="mb-5 text-lg font-medium text-gray-800 dark:text-white/90 lg:mb-6">
+                <h5 className="mb-5 text-lg font-medium text-gray-800 dark:text-white/90">
                   Social Links
                 </h5>
 
-                <div className="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
                     <Label>Facebook</Label>
                     <Input
                       type="text"
-                      value="https://www.facebook.com/PimjoHQ"
+                      value="https://www.facebook.com"
                     />
                   </div>
 
                   <div>
                     <Label>X.com</Label>
-                    <Input type="text" value="https://x.com/PimjoHQ" />
+                    <Input type="text" value="https://x.com" />
                   </div>
 
                   <div>
                     <Label>Linkedin</Label>
                     <Input
                       type="text"
-                      value="https://www.linkedin.com/company/pimjo"
+                      value="https://www.linkedin.com/company"
                     />
                   </div>
 
                   <div>
                     <Label>Instagram</Label>
-                    <Input type="text" value="https://instagram.com/PimjoHQ" />
+                    <Input type="text" value="https://instagram.com" />
                   </div>
                 </div>
               </div>
-              <div className="mt-7">
-                <h5 className="mb-5 text-lg font-medium text-gray-800 dark:text-white/90 lg:mb-6">
+
+              {/* Personal Information */}
+              <div className="mt-8 border-t border-gray-100 pt-7 dark:border-gray-800">
+                <h5 className="mb-5 text-lg font-medium text-gray-800 dark:text-white/90">
                   Personal Information
                 </h5>
 
-                <div className="grid grid-cols-1 gap-x-6 gap-y-5 lg:grid-cols-2">
-                  <div className="col-span-2 lg:col-span-1">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
                     <Label>First Name</Label>
-                    <Input type="text" value="Musharof" />
+                    <Input type="text" value="Abdolkarim" />
                   </div>
 
-                  <div className="col-span-2 lg:col-span-1">
+                  <div>
                     <Label>Last Name</Label>
-                    <Input type="text" value="Chowdhury" />
+                    <Input type="text" value="Bazdar" />
                   </div>
 
-                  <div className="col-span-2 lg:col-span-1">
+                  <div>
                     <Label>Email Address</Label>
-                    <Input type="text" value="randomuser@pimjo.com" />
+                    <Input type="text" value="bazdarabdolkarim@gmail.com" />
                   </div>
 
-                  <div className="col-span-2 lg:col-span-1">
+                  <div>
                     <Label>Phone</Label>
                     <Input type="text" value="+09 363 398 46" />
                   </div>
 
-                  <div className="col-span-2">
+                  <div className="sm:col-span-2">
                     <Label>Bio</Label>
                     <Input type="text" value="Team Manager" />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
+
+            {/* Modal Footer */}
+            <div className="mt-8 flex items-center justify-end gap-3 border-t border-gray-100 pt-5 dark:border-gray-800">
               <Button size="sm" variant="outline" onClick={closeModal}>
                 Close
               </Button>
+
               <Button size="sm" onClick={handleSave}>
                 Save Changes
               </Button>
