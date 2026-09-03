@@ -96,58 +96,140 @@ export default function UserAddressCard() {
       </div>
 
       {/* Modal */}
-      <Modal isOpen={isOpen} onClose={closeModal} className="max-w-[700px] m-4">
-        <div className="relative w-full overflow-y-auto rounded-2xl bg-white p-5 dark:bg-gray-900 sm:p-6 lg:p-8">
-          {/* Modal Header */}
-          <div className="mb-7 border-b border-gray-100 pb-5 dark:border-gray-800">
-            <h4 className="text-xl font-semibold text-gray-800 dark:text-white/90">
-              Edit Address
-            </h4>
+      <Modal
+        showCloseButton={false}
+        isOpen={isOpen}
+        onClose={closeModal}
+        className="w-full max-w-[640px] overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-gray-950"
+      >
+        <div className="relative">
+          {/* Header */}
+          <div className="bg-gray-900 px-6 py-6 dark:bg-gray-800 sm:px-8">
+            <div className="flex items-start justify-between">
+              <div>
+                <span className="mb-2 inline-block text-xs font-medium uppercase tracking-wider text-gray-400">
+                  Profile Settings
+                </span>
 
-            <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
-              Update your details to keep your profile up-to-date.
-            </p>
+                <h4 className="text-2xl font-bold text-white">Edit Address</h4>
+
+                <p className="mt-2 max-w-md text-sm leading-6 text-gray-400">
+                  Keep your address information accurate and up to date.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={closeModal}
+                className="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-white/10 text-gray-300
+                     transition-all duration-200
+                     hover:bg-white/20 hover:text-white"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
 
-          {/* Form */}
+          {/* Content */}
           <form className="flex flex-col">
-            <div className="custom-scrollbar max-h-[450px] overflow-y-auto px-1">
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div>
+            <div className="max-h-[460px] overflow-y-auto px-6 py-7 sm:px-8">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {/* Country */}
+                <div className="sm:col-span-2">
                   <Label>Country</Label>
-                  <Input type="text" value="Iran" />
+
+                  <div className="mt-2">
+                    <Input
+                      type="text"
+                      value="Iran"
+                      className="h-11 rounded-xl border-gray-200 bg-gray-50
+                           focus:border-gray-900 focus:ring-gray-900
+                           dark:border-gray-700 dark:bg-gray-900"
+                    />
+                  </div>
                 </div>
 
+                {/* City */}
                 <div>
-                  <Label>City/State</Label>
-                  <Input type="text" value="Fars, Iran" />
+                  <Label>City / State</Label>
+
+                  <div className="mt-2">
+                    <Input
+                      type="text"
+                      value="Fars, Iran"
+                      className="h-11 rounded-xl border-gray-200 bg-gray-50
+                           focus:border-gray-900 focus:ring-gray-900
+                           dark:border-gray-700 dark:bg-gray-900"
+                    />
+                  </div>
                 </div>
 
+                {/* Postal */}
                 <div>
                   <Label>Postal Code</Label>
-                  <Input
-                    type="text"
-                    value="Ahel 6650"
-                  />
+
+                  <div className="mt-2">
+                    <Input
+                      type="text"
+                      value="Ahel 6650"
+                      className="h-11 rounded-xl border-gray-200 bg-gray-50
+                           focus:border-gray-900 focus:ring-gray-900
+                           dark:border-gray-700 dark:bg-gray-900"
+                    />
+                  </div>
                 </div>
 
-                <div>
+                {/* Tax ID */}
+                <div className="sm:col-span-2">
                   <Label>TAX ID</Label>
-                  <Input
-                    type="text"
-                    value="Ahel6650"
-                  />
+
+                  <div className="mt-2">
+                    <Input
+                      type="text"
+                      value="Ahel6650"
+                      className="h-11 rounded-xl border-gray-200 bg-gray-50
+                           focus:border-gray-900 focus:ring-gray-900
+                           dark:border-gray-700 dark:bg-gray-900"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Footer */}
-            <div className="mt-8 flex items-center justify-end gap-3 border-t border-gray-100 pt-5 dark:border-gray-800">
-              <Button size="sm" variant="outline" onClick={closeModal}>
-                Close
+            <div
+              className="flex flex-col-reverse gap-3 border-t border-gray-100
+                   bg-gray-50 px-6 py-5 sm:flex-row sm:justify-end
+                   dark:border-gray-800 dark:bg-gray-900/50 sm:px-8"
+            >
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={closeModal}
+                className="rounded-xl px-6"
+              >
+                Cancel
               </Button>
 
-              <Button size="sm" onClick={handleSave}>
+              <Button
+                type="button"
+                size="sm"
+                onClick={handleSave}
+                className="rounded-xl px-6"
+              >
                 Save Changes
               </Button>
             </div>
