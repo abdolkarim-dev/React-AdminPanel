@@ -1,7 +1,11 @@
-import { useState } from "react";
+ import { useState } from "react";
 import { Link } from "react-router";
-import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/assets/icons";
- import Label from "../form/Label";
+import {
+  ChevronLeftIcon,
+  EyeCloseIcon,
+  EyeIcon,
+} from "@/assets/icons";
+import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
@@ -9,145 +13,239 @@ import Button from "../ui/button/Button";
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1">
-      <div className="w-full max-w-md pt-10 mx-auto">
+    <div className="relative flex flex-col flex-1 min-h-screen overflow-hidden bg-gray-50 dark:bg-gray-950">
+
+      {/* Decorative Background */}
+      <div className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full bg-brand-100/60 blur-3xl dark:bg-brand-500/10" />
+      <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-brand-50 blur-3xl dark:bg-brand-500/5" />
+
+      {/* Back */}
+      <div className="relative z-10 w-full max-w-lg px-5 pt-8 mx-auto">
         <Link
           to="/"
-          className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 transition-colors hover:text-brand-500 dark:text-gray-400 dark:hover:text-brand-400"
         >
-          <ChevronLeftIcon className="size-5" />
+          <ChevronLeftIcon className="size-4" />
           Back to dashboard
         </Link>
       </div>
-      <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
-        <div>
-          <div className="mb-5 sm:mb-8">
-            <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
-              Sign In
-            </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Enter your email and password to sign in!
-            </p>
-          </div>
-          <div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5">
-              <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
+
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center flex-1 w-full px-5 py-10">
+        <div className="w-full max-w-lg">
+
+          {/* Card */}
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8 dark:border-gray-800 dark:bg-gray-900">
+
+            {/* Header */}
+            <div className="mb-8">
+              {/* <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-500 dark:bg-brand-500/10">
                 <svg
-                  width="20"
-                  height="20"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H15"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M12 16L16 12L12 8"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M16 12H3"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div> */}
+
+              <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Welcome back
+              </h1>
+
+              <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
+                Sign in to your account to continue to your dashboard.
+              </p>
+            </div>
+
+            {/* Social Login */}
+            <div className="grid grid-cols-2 gap-3">
+
+              <button
+                type="button"
+                className="flex h-11 items-center justify-center gap-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50 active:scale-[0.98] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+              >
+                <svg
+                  width="19"
+                  height="19"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M18.7511 10.1944C18.7511 9.47495 18.6915 8.94995 18.5626 8.40552H10.1797V11.6527H15.1003C15.0011 12.4597 14.4654 13.675 13.2749 14.4916L13.2582 14.6003L15.9087 16.6126L16.0924 16.6305C17.7788 15.1041 18.7511 12.8583 18.7511 10.1944Z"
+                    d="M18.75 10.19C18.75 9.47 18.69 8.95 18.56 8.4H10.18V11.65H15.1C15 12.46 14.47 13.67 13.27 14.49L15.91 16.61C17.78 15.1 18.75 12.86 18.75 10.19Z"
                     fill="#4285F4"
                   />
                   <path
-                    d="M10.1788 18.75C12.5895 18.75 14.6133 17.9722 16.0915 16.6305L13.274 14.4916C12.5201 15.0068 11.5081 15.3666 10.1788 15.3666C7.81773 15.3666 5.81379 13.8402 5.09944 11.7305L4.99473 11.7392L2.23868 13.8295L2.20264 13.9277C3.67087 16.786 6.68674 18.75 10.1788 18.75Z"
+                    d="M10.18 18.75C12.59 18.75 14.61 17.97 16.09 16.63L13.27 14.49C12.52 15.01 11.51 15.37 10.18 15.37C7.82 15.37 5.81 13.84 5.1 11.73L2.2 13.93C3.67 16.79 6.69 18.75 10.18 18.75Z"
                     fill="#34A853"
                   />
                   <path
-                    d="M5.10014 11.7305C4.91165 11.186 4.80257 10.6027 4.80257 9.99992C4.80257 9.3971 4.91165 8.81379 5.09022 8.26935L5.08523 8.1534L2.29464 6.02954L2.20333 6.0721C1.5982 7.25823 1.25098 8.5902 1.25098 9.99992C1.25098 11.4096 1.5982 12.7415 2.20333 13.9277L5.10014 11.7305Z"
+                    d="M5.1 11.73C4.91 11.19 4.8 10.6 4.8 10C4.8 9.4 4.91 8.81 5.09 8.27L2.2 6.07C1.6 7.26 1.25 8.59 1.25 10C1.25 11.41 1.6 12.74 2.2 13.93L5.1 11.73Z"
                     fill="#FBBC05"
                   />
                   <path
-                    d="M10.1789 4.63331C11.8554 4.63331 12.9864 5.34303 13.6312 5.93612L16.1511 3.525C14.6035 2.11528 12.5895 1.25 10.1789 1.25C6.68676 1.25 3.67088 3.21387 2.20264 6.07218L5.08953 8.26943C5.81381 6.15972 7.81776 4.63331 10.1789 4.63331Z"
+                    d="M10.18 4.63C11.86 4.63 12.99 5.34 13.63 5.94L16.15 3.53C14.6 2.12 12.59 1.25 10.18 1.25C6.69 1.25 3.67 3.21 2.2 6.07L5.09 8.27C5.81 6.16 7.82 4.63 10.18 4.63Z"
                     fill="#EB4335"
                   />
                 </svg>
-                Sign in with Google
+
+                Google
               </button>
-              <button className="inline-flex items-center justify-center gap-3 py-3 text-sm font-normal text-gray-700 transition-colors bg-gray-100 rounded-lg px-7 hover:bg-gray-200 hover:text-gray-800 dark:bg-white/5 dark:text-white/90 dark:hover:bg-white/10">
+
+              <button
+                type="button"
+                className="flex h-11 items-center justify-center gap-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50 active:scale-[0.98] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
+              >
                 <svg
-                  width="21"
-                  className="fill-current"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 21 20"
-                  fill="none"
+                  fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M15.6705 1.875H18.4272L12.4047 8.75833L19.4897 18.125H13.9422L9.59717 12.4442L4.62554 18.125H1.86721L8.30887 10.7625L1.51221 1.875H7.20054L11.128 7.0675L15.6705 1.875ZM14.703 16.475H16.2305L6.37054 3.43833H4.73137L14.703 16.475Z" />
+                  <path d="M15.67 1.875H18.43L12.4 8.758L19.49 18.125H13.94L9.6 12.444L4.63 18.125H1.87L8.31 10.763L1.51 1.875H7.2L11.13 7.068L15.67 1.875ZM14.7 16.475H16.23L6.37 3.438H4.73L14.7 16.475Z" />
                 </svg>
-                Sign in with X
+
+                X
               </button>
             </div>
-            <div className="relative py-3 sm:py-5">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="p-2 text-gray-400 bg-white dark:bg-gray-900 sm:px-5 sm:py-2">
-                  Or
-                </span>
-              </div>
+
+            {/* Divider */}
+            <div className="my-7 flex items-center gap-4">
+              <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+
+              <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
+                Or continue with
+              </span>
+
+              <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
             </div>
+
+            {/* Form */}
             <form>
-              <div className="space-y-6">
+              <div className="space-y-5">
+
+                {/* Email */}
                 <div>
                   <Label>
-                    Email <span className="text-error-500">*</span>{" "}
+                    Email address{" "}
+                    <span className="text-error-500">*</span>
                   </Label>
-                  <Input placeholder="info@gmail.com" />
+
+                  <Input
+                    placeholder="you@example.com"
+                  />
                 </div>
+
+                {/* Password */}
                 <div>
                   <Label>
-                    Password <span className="text-error-500">*</span>{" "}
+                    Password{" "}
+                    <span className="text-error-500">*</span>
                   </Label>
+
                   <div className="relative">
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
                     />
-                    <span
+
+                    <button
+                      type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute z-30 -translate-y-1/2 cursor-pointer right-4 top-1/2"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-gray-400 transition-colors hover:text-gray-600 dark:hover:text-gray-200"
+                      aria-label={
+                        showPassword
+                          ? "Hide password"
+                          : "Show password"
+                      }
                     >
                       {showPassword ? (
-                        <EyeIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                        <EyeIcon className="size-5 fill-gray-500 dark:fill-gray-400" />
                       ) : (
-                        <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
+                        <EyeCloseIcon className="size-5 fill-gray-500 dark:fill-gray-400" />
                       )}
-                    </span>
+                    </button>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Checkbox checked={isChecked} onChange={setIsChecked} />
-                    <span className="block font-normal text-gray-700 text-theme-sm dark:text-gray-400">
-                      Keep me logged in
+
+                {/* Options */}
+                <div className="flex items-center justify-between gap-4">
+
+                  <label className="flex cursor-pointer items-center gap-2.5">
+                    <Checkbox
+                      checked={isChecked}
+                      onChange={setIsChecked}
+                    />
+
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                      Remember me
                     </span>
-                  </div>
+                  </label>
+
                   <Link
                     to="/reset-password"
-                    className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                    className="text-sm font-medium text-brand-500 transition-colors hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300"
                   >
                     Forgot password?
                   </Link>
                 </div>
-                <div>
-                  <Button className="w-full" size="sm">
-                    Sign in
-                  </Button>
-                </div>
+
+                {/* Submit */}
+                <Button
+                  className="!h-12 w-full rounded-xl text-sm font-semibold shadow-sm transition-all hover:shadow-md"
+                  size="sm"
+                >
+                  Sign in
+                </Button>
               </div>
             </form>
 
-            <div className="mt-5">
-              <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
-                Don&apos;t have an account? {""}
+            {/* Sign Up */}
+            <div className="mt-7 border-t border-gray-100 pt-6 text-center dark:border-gray-800">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Don't have an account?{" "}
                 <Link
                   to="/signup"
-                  className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                  className="font-semibold text-brand-500 transition-colors hover:text-brand-600 dark:text-brand-400 dark:hover:text-brand-300"
                 >
-                  Sign Up
+                  Create an account
                 </Link>
               </p>
             </div>
+
           </div>
+
+          {/* Footer */}
+          <p className="mt-6 text-center text-xs text-gray-400 dark:text-gray-600">
+            © 2026 Admin Panel. All rights reserved.
+          </p>
+
         </div>
       </div>
     </div>
   );
-}
+} 
